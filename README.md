@@ -10,10 +10,10 @@ The number pad buttons show different vertical text alignment between web and An
 
 ## Screenshots
 ### Web Version (Centered Numbers)
-![Web Version](screenshots/web.png)
+<img src="screenshots/web.png" width="500">
 
 ### Android Version (Bottom-Aligned Numbers)
-![Android Version](screenshots/expo-go-android.png)
+<img src="screenshots/expo-go-android.png" width="200">
 
 ## Questions
 1. Why does the text alignment behave differently between web and Android?
