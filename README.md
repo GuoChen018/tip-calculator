@@ -8,7 +8,18 @@ The number pad buttons show different vertical text alignment between web and An
 - On web: Numbers are properly centered in buttons
 - On Android (Expo Go): Numbers appear aligned to the bottom of buttons
 
-### Current Style Implementation
+## Screenshots
+### Web Version (Centered Numbers)
+![Web Version](screenshots/web.png)
+
+### Android Version (Bottom-Aligned Numbers)
+![Android Version](screenshots/expo-go-android.png)
+
+## Questions
+1. Why does the text alignment behave differently between web and Android?
+2. What's the best approach to achieve consistent centering across platforms?
+
+## Current Style Implementation
 ```typescript
 bottomSection: {
     flex: 0.4,
@@ -61,14 +72,3 @@ npx expo start
 - Expo SDK: 52.0.25
 - React Native: 0.76.6
 - Platform tested: Android (Expo Go)
-
-## Screenshots
-### Web Version (Centered Numbers)
-![Web Version](screenshots/web.png)
-
-### Android Version (Bottom-Aligned Numbers)
-![Android Version](screenshots/expo-go-android.png)
-
-## Questions
-1. Why does the text alignment behave differently between web and Android?
-2. What's the best approach to achieve consistent centering across platforms?
