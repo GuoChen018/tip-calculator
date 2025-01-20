@@ -1,50 +1,74 @@
-# Welcome to your Expo app 👋
+# Tip Calculator App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native tip calculator app built with Expo. Currently facing an issue with text alignment in number pad buttons on Android.
 
-## Get started
+## The Issue
 
-1. Install dependencies
+The number pad buttons show different vertical text alignment between web and Android:
+- On web: Numbers are properly centered in buttons
+- On Android (Expo Go): Numbers appear aligned to the bottom of buttons
 
-   ```bash
-   npm install
-   ```
+### Current Style Implementation
+```typescript
+bottomSection: {
+    flex: 0.4,
+    alignItems: 'center',
+    justifyContent: 'center',
+}, 
 
-2. Start the app
+numberPad: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 10,
+},
 
-   ```bash
-    npx expo start
-   ```
+numberButton: {
+    width: '30%',
+    aspectRatio: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.backgroundSecondary,
+    borderRadius: 8,
+},
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+numberText: {
+    fontFamily: 'CherryBomb',
+    fontSize: 20,
+    color: colors.textSecondary,
+    textAlign: 'center'
+}
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+## How to Test
 
-To learn more about developing your project with Expo, look at the following resources:
+1. Clone and run the project:
+```bash
+git clone https://github.com/YOUR_USERNAME/tip-calculator.git
+cd tip-calculator
+npm install
+npx expo start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+2. Test on:
+- Web browser: `w` - Numbers appear centered
+- Android (Expo Go): `a` - Numbers appear at bottom of buttons
 
-Join our community of developers creating universal apps.
+## Environment
+- Expo SDK: 52.0.25
+- React Native: 0.76.6
+- Platform tested: Android (Expo Go)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Screenshots
+### Web Version (Centered Numbers)
+![Web Version](screenshots/web.png)
+
+### Android Version (Bottom-Aligned Numbers)
+![Android Version](screenshots/expo-go-android.png)
+
+## Questions
+1. Why does the text alignment behave differently between web and Android?
+2. What's the best approach to achieve consistent centering across platforms?
