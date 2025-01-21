@@ -8,6 +8,7 @@ import { COLORS } from "@/constants/Theme";
 import { SunIcon } from "@/components/SunIcon";
 import { MoonIcon } from "@/components/MoonIcon";
 import * as Haptics from 'expo-haptics';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
 

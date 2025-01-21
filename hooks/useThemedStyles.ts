@@ -11,8 +11,8 @@ const baseTextStyle = {
     includeFontPadding: false
 };
 
-const { height } = Dimensions.get('window'); // Screen height
-const buttonHeight = height * 0.094; // 10% of the screen height
+// const { height } = Dimensions.get('window'); // Screen height
+// const buttonHeight = height * 0.08; // 10% of the screen height
 
 export function useThemedStyles() {
   const { theme } = useTheme();
@@ -117,18 +117,20 @@ export function useThemedStyles() {
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: 10,
-        paddingHorizontal: 8
+        justifyContent: 'space-between',
+        alignContent: 'space-between',
+        paddingHorizontal: 12,
     },
 
     numberButton: {
-        width: '30%',
+        flexBasis: '30%',
+        aspectRatio: 1,
         alignItems: 'center',  // Centers content horizontally     
         justifyContent: 'center',  // Centers content vertically 
         backgroundColor: colors.backgroundSecondary,
-        borderRadius: 8,
-        height: buttonHeight
+        borderRadius: 8, 
+        flexGrow: 1,
+        margin: 4
     },
 
     numberText: {
@@ -137,7 +139,8 @@ export function useThemedStyles() {
         color: colors.textSecondary,
         textAlign: 'center',
         textAlignVertical: 'center', // Android-specific vertical alignment
-        // lineHeight: TYPOGRAPHY.size.regular * 1.2, // Adjust as needed for vertical centering
+        padding: 0,
+        margin: 0,
     }
 
   }), [theme]);
