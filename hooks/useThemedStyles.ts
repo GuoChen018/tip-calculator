@@ -24,9 +24,11 @@ export function useThemedStyles() {
         backgroundColor: colors.backgroundPrimary
     },
     topSection: {
-        flex: 0.4,
+        flex: 0.35,
         alignItems: 'center',
         justifyContent: 'center',
+        paddingHorizontal: 16,
+        marginBottom: 20
     },
     header: {
         flexDirection: 'row',
@@ -34,7 +36,6 @@ export function useThemedStyles() {
         alignItems: 'center',
         width: '100%',
         paddingHorizontal: 16,
-        paddingTop: 16,
     },
     logoSpace: {
         width: 24, // Placeholder for logo
@@ -44,27 +45,30 @@ export function useThemedStyles() {
     },
     billDisplay: {
         flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10
+        alignItems: 'flex-start',
+        gap: 10, 
+        marginBottom: 12
     },
     subHeader: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.small,
-        color: colors.textSecondary
+        color: colors.textSecondary, 
+        marginBottom: 20
     },
     dollarSign: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.medium,
+        lineHeight: TYPOGRAPHY.size.medium,
         color: colors.textSecondary
     },
     billText: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.large,
+        lineHeight: TYPOGRAPHY.size.large,
         color: colors.textPrimary
     },
     percentageContainer: {
         flexDirection: 'row',
-        marginTop: 20,
         gap: 10
     },
     percentButton: {
@@ -86,51 +90,56 @@ export function useThemedStyles() {
     },
     
     midSection: {
-        flex: 0.2,
+        flex: 0.25,
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     calculationRow: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         gap: 10,
+        marginBottom: 16
     },
     tipDollarSign: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.medium,
+        lineHeight: TYPOGRAPHY.size.medium,
         color: colors.textSecondary, 
     },
     tipAmount: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.large,
+        lineHeight: TYPOGRAPHY.size.large,
         color: colors.textPrimary,
     },
 
     bottomSection: {
         flex: 0.4,
+        width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        paddingBottom: 16,
+       
     }, 
 
     numberPad: {
-        flex: 1,
+        width: '100%',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         alignContent: 'space-between',
-        paddingHorizontal: 12,
+        paddingHorizontal: 8,
     },
 
     numberButton: {
-        flexBasis: '30%',
-        aspectRatio: 1,
-        alignItems: 'center',  // Centers content horizontally     
-        justifyContent: 'center',  // Centers content vertically 
+        width: '30%',
+        height: '26%',
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: colors.backgroundSecondary,
-        borderRadius: 8, 
-        flexGrow: 1,
-        margin: 4
+        borderRadius: 8,
+        margin: 4,
     },
 
     numberText: {

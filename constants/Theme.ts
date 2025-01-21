@@ -1,3 +1,6 @@
+import { Dimensions } from 'react-native';
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
 export const COLORS = {
     light: {
         textPrimary: '#555555',
@@ -18,9 +21,9 @@ export const TYPOGRAPHY = {
         primary: 'CherryBomb',
     },
     size: {
-        large: 80,
-        medium: 32,
-        regular: 20,
-        small: 14,
+        large: SCREEN_WIDTH * 0.2,
+        medium: SCREEN_WIDTH * 0.08,
+        regular: SCREEN_WIDTH * 0.05,
+        small: SCREEN_WIDTH * 0.035,
     }
 };

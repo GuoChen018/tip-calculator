@@ -77,9 +77,9 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} >
       <View style={styles.topSection}>
-      <View style={styles.header}>
+        <View style={styles.header}>
           <View style={styles.logoSpace} />
           <Pressable onPress={toggleTheme} style={styles.themeToggle}>
             {theme === 'light' ? (
@@ -121,7 +121,9 @@ export default function Index() {
         </View>
       </View>
       <View style={styles.midSection}>
+
         <Text style={styles.subHeader}>Tip Amount</Text>
+
         <View style={styles.calculationRow}>
           <Text style={[styles.tipDollarSign, { opacity: billAmount === '0' ? 0.1 : 1 }]}>$</Text>
           <Text style={[styles.tipAmount, { opacity: billAmount === '0' ? 0.1 : 1 }]}>
@@ -146,7 +148,7 @@ export default function Index() {
           ))}
         </View>
       </View>
-    </View>
+    </SafeAreaView>
 
   );
 }
