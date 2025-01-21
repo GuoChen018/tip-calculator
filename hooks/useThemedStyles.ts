@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Pressable, Text } from 'react-native';
 import { useTheme } from '@/context/ThemeContext';
 import { COLORS, TYPOGRAPHY } from '@/constants/Theme';
+import { Dimensions } from 'react-native';
 
 const baseTextStyle = {
     fontFamily: TYPOGRAPHY.fonts.primary,
@@ -9,6 +10,9 @@ const baseTextStyle = {
     // borderColor: 'red',
     includeFontPadding: false
 };
+
+const { height } = Dimensions.get('window'); // Screen height
+const buttonHeight = height * 0.094; // 10% of the screen height
 
 export function useThemedStyles() {
   const { theme } = useTheme();
@@ -24,9 +28,24 @@ export function useThemedStyles() {
         alignItems: 'center',
         justifyContent: 'center',
     },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        paddingHorizontal: 16,
+        paddingTop: 16,
+    },
+    logoSpace: {
+        width: 24, // Placeholder for logo
+    },
+    themeToggle: {
+        padding: 8,
+    },
     billDisplay: {
         flexDirection: 'row',
-        alignItems: 'flex-start'
+        alignItems: 'center',
+        gap: 10
     },
     subHeader: {
         ...baseTextStyle,
@@ -45,7 +64,7 @@ export function useThemedStyles() {
     },
     percentageContainer: {
         flexDirection: 'row',
-        marginTop: 28,
+        marginTop: 20,
         gap: 10
     },
     percentButton: {
@@ -100,22 +119,25 @@ export function useThemedStyles() {
         flexWrap: 'wrap',
         justifyContent: 'center',
         gap: 10,
+        paddingHorizontal: 8
     },
 
     numberButton: {
         width: '30%',
-        aspectRatio: 1,
         alignItems: 'center',  // Centers content horizontally     
         justifyContent: 'center',  // Centers content vertically 
         backgroundColor: colors.backgroundSecondary,
         borderRadius: 8,
+        height: buttonHeight
     },
 
     numberText: {
         ...baseTextStyle,
         fontSize: TYPOGRAPHY.size.regular,
         color: colors.textSecondary,
-        textAlign: 'center'
+        textAlign: 'center',
+        textAlignVertical: 'center', // Android-specific vertical alignment
+        // lineHeight: TYPOGRAPHY.size.regular * 1.2, // Adjust as needed for vertical centering
     }
 
   }), [theme]);

@@ -2,12 +2,18 @@ import { Text, View, StyleSheet, Pressable} from "react-native";
 import {useState, useEffect} from 'react';
 import { useTheme } from "@/context/ThemeContext";
 import { useThemedStyles } from '@/hooks/useThemedStyles';
-import { Animated } from 'react-native';
+import { Animated} from 'react-native';
+import { DeleteIcon } from "@/components/DeleteIcon";
+import { COLORS } from "@/constants/Theme"; 
+import { SunIcon } from "@/components/SunIcon";
+import { MoonIcon } from "@/components/MoonIcon";
+import * as Haptics from 'expo-haptics';
 
 export default function Index() {
 
   const { theme, toggleTheme } = useTheme();
   const styles = useThemedStyles();
+  const colors = COLORS[theme]; 
 
   const [billAmount, setBillAmount] = useState("0");
   const [selectedTip, setSelectedTip] = useState(15); //15% as default
@@ -34,6 +40,8 @@ export default function Index() {
   }, [billAmount, selectedTip]);
 
   const handleNumberPress = (value: string) => {
+    Haptics.selectionAsync();
+    
     // Handle backspace
     if (value === '⌫') {
       setBillAmount(prev => prev.slice(0, -1) || '0');
@@ -70,9 +78,16 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
-        <Pressable onPress={toggleTheme}>
-          <Text>Current theme: {theme}</Text>
-        </Pressable>
+      <View style={styles.header}>
+          <View style={styles.logoSpace} />
+          <Pressable onPress={toggleTheme} style={styles.themeToggle}>
+            {theme === 'light' ? (
+              <MoonIcon color={colors.textSecondary} size={24} />
+            ) : (
+              <SunIcon color={colors.textSecondary} size={24} />
+            )}
+          </Pressable>
+        </View>
 
         <Text style={styles.subHeader}>Bill Total</Text>
 
@@ -117,12 +132,16 @@ export default function Index() {
         <View style={styles.numberPad}>
           {numberPadButtons.map((button) => (
             <Pressable
-              key={button}
-              style={styles.numberButton}
-              onPress={() => handleNumberPress(button)}
-            >
-              <Text style={styles.numberText}>{button}</Text>
-            </Pressable>
+            key={button}
+            style={styles.numberButton}
+            onPress={() => handleNumberPress(button)}
+          >
+            {button === '⌫' ? (
+              <DeleteIcon color={colors.textSecondary} size={24} />
+            ) : (
+              <Text style={styles.numberText}>{button}</Text>  // Ensure this is wrapped in <Text>
+            )}
+          </Pressable>
           ))}
         </View>
       </View>
